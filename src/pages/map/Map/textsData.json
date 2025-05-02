@@ -1,0 +1,239 @@
+[
+  {
+    "center": [114.335322, 36.854861],
+    "direction": "bottom",
+    "angle": 0,
+    "anchor": "top-center",
+    "content": "电厂出口 <br/> DN1400热力管线"
+  },
+  {
+    "center": [114.345161, 36.860221],
+
+    "direction": "right",
+    "angle": -66,
+    "anchor": "middle-left",
+    "content": "DN1400"
+  },
+  {
+    "center": [114.347833, 36.876401],
+    "direction": "right",
+    "angle": -25,
+    "anchor": "top-center",
+    "content": "DN1400"
+  },
+  {
+    "center": [114.368312, 36.876731],
+
+    "direction": "right",
+    "angle": 0,
+    "anchor": "top-center",
+    "content": "DN1400"
+  },
+  {
+    "center": [114.387994, 36.877107],
+
+    "direction": "right",
+    "angle": 10,
+    "anchor": "top-center",
+    "content": "DN1400"
+  },
+  {
+    "center": [114.426185, 36.869662],
+    "direction": "right",
+    "angle": 10,
+    "anchor": "top-center",
+    "content": "DN1400"
+  },
+  {
+    "center": [114.443705, 36.885055],
+    "direction": "right",
+    "angle": -90,
+    "anchor": "top-center",
+    "content": "DN1400"
+  },
+  {
+    "center": [114.456678, 36.906811],
+
+    "direction": "right",
+    "angle": -65,
+    "anchor": "top-center",
+    "content": "DN1400"
+  },
+  {
+    "center": [114.459116, 36.926625],
+    "direction": "right",
+    "angle": -90,
+    "anchor": "top-center",
+    "content": "DN1400"
+  },
+  {
+    "center": [114.464262, 36.936373],
+    "direction": "right",
+    "angle": 0,
+    "anchor": "top-center",
+    "content": "DN1400"
+  },
+  {
+    "center": [114.475657, 36.960141],
+    "direction": "right",
+    "angle": -90,
+    "anchor": "top-center",
+    "content": "DN1400"
+  },
+  {
+    "center": [114.468138, 36.989509],
+    "direction": "left",
+    "angle": -100,
+    "anchor": "bottom-center",
+    "content": "DN1400"
+  },
+  {
+    "center": [114.466747, 37.032129],
+    "direction": "right",
+    "angle": 0,
+    "anchor": "middle-left",
+    "content": "DN1200"
+  },
+  {
+    "center": [114.458714, 37.032554],
+
+    "direction": "right",
+    "angle": 0,
+    "anchor": "top-center",
+    "content": "DN1200"
+  },
+  {
+    "center": [114.465919, 37.028308],
+    "direction": "right",
+    "angle": -90,
+    "anchor": "top-center",
+    "content": "DN1400"
+  },
+  {
+    "center": [114.474053, 37.036271],
+    "direction": "right",
+    "angle": 0,
+    "anchor": "top-center",
+    "content": "DN600"
+  },
+  {
+    "center": [114.491399, 37.036083],
+
+    "direction": "right",
+    "angle": 70,
+    "anchor": "top-center",
+    "content": "DN500"
+  },
+  {
+    "center": [114.514814, 37.036256],
+
+    "direction": "right",
+    "angle": 90,
+    "anchor": "top-center",
+    "content": "DN900"
+  },
+  {
+    "center": [114.514814, 37.029171],
+
+    "direction": "right",
+    "angle": 90,
+    "anchor": "top-center",
+    "content": "DN900"
+  },
+  {
+    "center": [114.52754, 37.044838],
+    "direction": "right",
+    "angle": 90,
+    "anchor": "top-center",
+    "content": "DN900"
+  },
+  {
+    "center": [114.527482, 37.05785],
+
+    "direction": "right",
+    "angle": 90,
+    "anchor": "top-center",
+    "content": "DN900"
+  },
+  {
+    "center": [114.541631, 37.040378],
+
+    "direction": "right",
+    "angle": 0,
+    "anchor": "top-center",
+    "content": "DN600"
+  },
+  {
+    "center": [114.560569, 37.04333],
+
+    "direction": "right",
+    "angle": 0,
+    "anchor": "top-center",
+    "content": "DN600"
+  },
+  {
+    "center": [114.564428, 37.042361],
+    "direction": "right",
+    "angle": 90,
+    "anchor": "bottom-left",
+    "content": "DN600"
+  },
+  {
+    "center": [114.564468, 37.038808],
+    "direction": "right",
+    "angle": 90,
+    "anchor": "top-center",
+    "content": "DN500"
+  },
+
+  {
+    "center": [114.44526, 37.089856],
+
+    "direction": "right",
+    "angle": 90,
+    "anchor": "top-center",
+    "content": "DN700"
+  },
+  {
+    "center": [114.445168, 37.074763],
+    "direction": "right",
+    "angle": 90,
+    "anchor": "top-center",
+    "content": "DN700"
+  },
+  {
+    "center": [114.439435, 37.072053],
+    "direction": "right",
+    "angle": 0,
+    "anchor": "top-center",
+    "content": "DN600"
+  },
+  {
+    "center": [114.444235, 37.06614],
+    "direction": "right",
+    "angle": 0,
+    "anchor": "top-center",
+    "content": "DN400"
+  },
+  {
+    "center": [114.44629, 37.066152],
+    "direction": "right",
+    "angle": 0,
+    "anchor": "top-center",
+    "content": "DN900"
+  },
+  {
+    "center": [114.454434, 37.051194],
+    "direction": "right",
+    "angle": 90,
+    "anchor": "top-center",
+    "content": "DN1100"
+  },
+  {
+    "center": [114.449942, 37.048032],
+    "direction": "right",
+    "angle": 0,
+    "anchor": "top-center",
+    "content": "DN600"
+  }
+]

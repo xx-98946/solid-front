@@ -1,0 +1,90 @@
+[
+  {
+    "angle": 0,
+    "center": [114.347925, 36.869376],
+    "content": "一标段 <br/> 2961米",
+    "direction": "right",
+    "offsetX": 50,
+    "offsetY": 0
+  },
+  {
+    "angle": 90,
+    "center": [114.372735, 36.877878],
+    "content": "二标段 <br/> 2997米",
+    "direction": "bottom",
+    "offsetX": 0,
+    "offsetY": 50
+  },
+  {
+    "angle": 105,
+    "center": [114.40979, 36.870897],
+    "content": "三标段 <br/> 3633米",
+    "direction": "bottom",
+    "offsetX": 10,
+    "offsetY": -150
+  },
+  {
+    "angle": 60,
+    "center": [114.444141, 36.868352],
+    "content": "四标段 <br/> 3202米",
+    "direction": "bottom",
+    "offsetX": 50,
+    "offsetY": 50
+  },
+  {
+    "angle": 0,
+    "center": [114.444106, 36.898987],
+    "content": "五标段 <br/> 3588米",
+    "direction": "bottom",
+    "offsetX": -100,
+    "offsetY": -40
+  },
+  {
+    "angle": 0,
+    "center": [114.459161, 36.911485],
+    "content": "六标段 <br/> 2320米",
+    "direction": "bottom",
+    "offsetX": 100,
+    "offsetY": -40
+  },
+  {
+    "angle": 0,
+    "center": [114.459056, 36.935492],
+    "content": "七标段 <br/> 3216米",
+    "direction": "bottom",
+    "offsetX": -100,
+    "offsetY": -40
+  },
+  {
+    "angle": 0,
+    "center": [114.47574, 36.948198],
+    "content": "八标段 <br/> 1967米",
+    "direction": "bottom",
+    "offsetX": 100,
+    "offsetY": -40
+  },
+  {
+    "angle": 0,
+    "center": [114.475645, 36.968422],
+    "content": "九标段 <br/> 3143米",
+    "direction": "bottom",
+    "offsetX": 100,
+    "offsetY": -40
+  },
+  {
+    "angle": 0,
+    "center": [114.467027, 37.000259],
+    "content": "十标段 <br/> 3537米",
+    "direction": "bottom",
+    "offsetX": 100,
+    "offsetY": -40
+  },
+  {
+    "angle": 90,
+    "center": [114.465103, 37.032455],
+    "content": "十一标段 <br/> 6169米",
+    "direction": "bottom",
+    "offsetX": -70,
+    "offsetY": -150
+  }
+]

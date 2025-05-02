@@ -1,0 +1,165 @@
+[
+  {
+    "center": [114.33684, 36.857835],
+    "direction": "bottom",
+    "angle": 0,
+    "anchor": "bottom-right",
+    "content": "直埋穿越 <br/> 淤泥河",
+    "offsetX": -20,
+    "offsetY": -50
+  },
+  {
+    "center": [114.341855, 36.857072],
+    "direction": "bottom",
+    "angle": -135,
+    "anchor": "bottom-right",
+    "content": "直埋穿越 <br/> 武新线",
+    "offsetX": 60,
+    "offsetY": 100
+  },
+
+  {
+    "center": [114.34404, 36.870155],
+    "direction": "bottom",
+    "angle": -45,
+    "anchor": "bottom-right",
+    "content": "顶管穿越 <br/> 沙午铁路",
+    "offsetX": -70,
+    "offsetY": 30
+  },
+  {
+    "center": [114.374114, 36.876928],
+    "direction": "bottom",
+    "angle": 180,
+    "anchor": "bottom-right",
+    "content": "直埋穿越 <br/> 小沙河",
+    "offsetX": 130,
+    "offsetY": 100
+  },
+  {
+    "center": [114.410147, 36.870475],
+    "direction": "bottom",
+    "anchor": "bottom-right",
+    "content": "直埋穿越 <br/> 南水北调",
+    "angle": -90,
+    "offsetX": -30,
+    "offsetY": 100
+  },
+  {
+    "center": [114.444002, 36.868258],
+    "direction": "bottom",
+    "angle": -90,
+    "anchor": "bottom-right",
+    "content": "顶管穿越 <br/> S329省道",
+    "offsetX": -30,
+    "offsetY": 100
+  },
+  {
+    "center": [114.459336, 36.911865],
+    "direction": "bottom",
+    "angle": 0,
+    "anchor": "bottom-right",
+    "content": "顶管穿越 <br/> 纬三路、沙河供水管道",
+    "offsetX": -30,
+    "offsetY": -30
+  },
+  {
+    "center": [114.473748, 36.937945],
+    "direction": "bottom",
+    "angle": 0,
+    "anchor": "bottom-right",
+    "content": "顶管穿越 <br/> 钢铁路",
+    "offsetX": -30,
+    "offsetY": -30
+  },
+  {
+    "center": [114.475808, 36.940282],
+    "direction": "bottom",
+    "angle": 90,
+    "anchor": "bottom-right",
+    "content": "顶管穿越 <br/> 邢清干渠",
+    "offsetX": 130,
+    "offsetY": -30
+  },
+  {
+    "center": [114.475706, 36.950496],
+    "direction": "bottom",
+    "angle": 0,
+    "anchor": "bottom-right",
+    "content": "直埋穿越 <br/> 大沙河",
+    "offsetX": -30,
+    "offsetY": -30
+  },
+  {
+    "center": [114.475683, 36.969735],
+    "direction": "bottom",
+    "angle": 0,
+    "anchor": "bottom-right",
+    "content": "定向钻穿越 <br/> 340国道",
+    "offsetX": -30,
+    "offsetY": -30
+  },
+  {
+    "center": [114.4749, 36.975571],
+    "direction": "bottom",
+    "angle": 90,
+    "anchor": "bottom-right",
+    "content": "直埋穿越 <br/> 东吕高速",
+    "offsetX": 130,
+    "offsetY": -30
+  },
+  {
+    "center": [114.466618, 37.003931],
+    "direction": "bottom",
+    "anchor": "bottom-right",
+    "content": "顶管穿越 <br/> 邢煤铁路",
+    "angle": 90,
+    "offsetX": 130,
+    "offsetY": -30
+  },
+  {
+    "center": [114.463921, 37.02256],
+    "direction": "bottom",
+    "angle": 0,
+    "anchor": "bottom-right",
+    "content": "直埋穿越 <br/> 七里河",
+    "offsetX": -30,
+    "offsetY": -30
+  },
+  {
+    "center": [114.466782, 37.032445],
+    "direction": "bottom",
+    "anchor": "bottom-right",
+    "content": "直埋穿越 <br/> 百泉大道",
+    "angle": 90,
+    "offsetX": 130,
+    "offsetY": -30
+  },
+  {
+    "center": [114.465258, 37.032411],
+    "direction": "bottom",
+    "anchor": "bottom-right",
+    "content": "直埋穿越 <br/> 百泉大道",
+    "angle": -90,
+    "offsetX": -30,
+    "offsetY": 100
+  },
+  {
+    "center": [114.514845, 37.032357],
+    "direction": "bottom",
+    "anchor": "bottom-right",
+    "content": "定向钻穿越 <br/> 百泉大道",
+    "angle": 90,
+    "offsetX": 130,
+    "offsetY": -30
+  },
+  {
+    "center": [114.514826, 37.027489],
+    "direction": "bottom",
+    "anchor": "bottom-right",
+    "content": "定向钻穿越 <br/> 七里河",
+    "angle": -90,
+    "offsetX": -30,
+    "offsetY": 100
+  }
+]

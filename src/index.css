@@ -1,0 +1,43 @@
+@import "tailwindcss";
+@keyframes roll {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.roll {
+  animation: roll 10s linear infinite;
+}
+
+.roll-10 {
+  animation: roll 10s linear infinite;
+}
+
+.roll-20 {
+  animation: roll 20s linear infinite;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(-5deg);
+  }
+
+  50% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(5deg);
+  }
+}
+
+.shake {
+  animation: shake 0.4s linear infinite;
+}
