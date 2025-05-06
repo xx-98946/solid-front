@@ -12,7 +12,6 @@
   "dependencies": {
     "@amap/amap-jsapi-loader": "^1.0.1",
     "@annotorious/openseadragon": "^3.3.6",
-    "@rollup/rollup-linux-x64-gnu": "^4.40.2",
     "@solidjs/router": "^0.15.3",
     "@tailwindcss/vite": "^4.1.4",
     "@types/amap-js-api": "^1.4.16",

@@ -1,28 +1,41 @@
-import { fileURLToPath } from 'node:url'
-import { createServer } from 'npm:vite'
+import { serveDir, serveFile } from "jsr:@std/http/file-server";
 
-const __dirname = fileURLToPath(new URL('.', import.meta.url))
+Deno.serve(async (req) => {
+  const url = new URL(req.url);
 
-const server = await createServer({
-  // any valid user config options, plus `mode` and `configFile`
-  configFile: false,
-  root: __dirname,
-  server: {
-    port: 1337,
-    proxy: {
-      "/api/kv": {
-        target: "https://xuxin-kv.deno.dev/",
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api\/kv/, ""),
-      },
-      // "/api": {
-      //   target: "http://localhost:3000",
-      //   changeOrigin: true,
-      // },
-    },
-  },
-})
-await server.listen()
+    if (url.pathname.startsWith("/api/kv")) {
+        return proxyRequest(req);
+    }
+    const response = await serveDir(req, {
+        fsRoot: "./",
+    });
+    if (response.status == 404) {
+        return serveFile(req, "./index.html")
+    }
+    return response;
+});
 
-server.printUrls()
-server.bindCLIShortcuts({ print: true })
+
+// 代理函数
+async function proxyRequest(req: Request): Promise<Response> {
+  const url = new URL(req.url);
+  
+  // 配置代理目标地址
+  const target = 'https://xuxin-kv.deno.dev'; // 后端 API 地址
+  
+  const proxyUrl = target + url.pathname.replace(/^\/api\/kv/, "") + url.search; // 合并路径和查询参数
+  // console.log("??proxyUrl",proxyUrl)
+  const proxyReq = await fetch(proxyUrl, {
+    method: req.method,
+    headers: req.headers,
+    body: req.method !== 'GET' ? req.body : null,
+  });
+
+  const proxyRes = new Response(proxyReq.body, {
+    status: proxyReq.status,
+    statusText: proxyReq.statusText,
+    headers: proxyReq.headers,
+  });
+
+  return proxyRes;
+}
