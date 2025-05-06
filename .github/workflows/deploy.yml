@@ -39,6 +39,6 @@ jobs:
         with:
           project: "solid-xuxin"
           entrypoint: "npm:vite preview --host"
-          root: "dist"
+          # root: "dist"
           
           
