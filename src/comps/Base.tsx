@@ -1,63 +1,92 @@
+import { useData, IType, useComputed } from "$/utils";
 import { nanoid } from "nanoid";
 import { Component, JSX } from "solid-js";
 import { Dynamic } from "solid-js/web";
 import { type ClassNameValue, twMerge } from "tailwind-merge";
 
-export interface IBaseProps {
-  component?: string | Component;
-  children?: JSX.Element;
-  class?: ClassNameValue;
-  onClick?: (event: MouseEvent) => void;
-  onClickSelf?: (event: MouseEvent) => void;
-  onPress?: (event: MouseEvent) => void;
-  onMouseDown?: (event: MouseEvent) => void;
-  onDblClick?: (event: MouseEvent) => void;
+export type IBaseType = IType<
+  {
+    component: string | Component;
+    children: JSX.Element;
+    class: ClassNameValue;
+    baseClass: ClassNameValue;
+    pressTime: number; // 区分长按和点击，默认250毫秒
+    id: string; // 唯一标识
+    style: string;
+  },
+  {
+    onClick?: (event: MouseEvent) => void;
+    onClickSelf?: (event: MouseEvent) => void;
+    onPress?: (event: MouseEvent) => void;
+    onMouseDown?: (event: MouseEvent) => void;
+    onDblClick?: (event: MouseEvent) => void;
+  }
+>;
 
-  time?: number; // 区分长按和点击，默认250毫秒
-}
+export type IBaseAttrs<T = {}> = IBaseType["Attrs"] & T;
+export type IBaseEvents<T = {}> = IBaseType["Events"] & T;
 
-export function Base(props: IBaseProps) {
+export function Base(props: IBaseType["Props"]) {
+  const data = useData<IBaseType["Attrs"], IBaseType["Events"]>(props);
+
   const handleMousedown: JSX.EventHandlerUnion<
     HTMLDivElement,
     MouseEvent,
     JSX.EventHandler<HTMLDivElement, MouseEvent>
   > = (event) => {
-    props.onMouseDown?.(event);
+    data.onMouseDown?.(event);
     const target = event.target;
     const start = Date.now();
     const timer = setTimeout(() => {
       //   console.log("??250ms");
-      props.onPress?.(event);
+      data.onPress?.(event);
       target?.removeEventListener("mouseup", mouseUp);
-    }, props.time || 250);
+    }, data.pressTime.get()!);
 
     const mouseUp: any = (e: MouseEvent) => {
       const end = Date.now();
       const time = end - start;
-      if (time < (props.time || 250)) {
+      if (time < data.pressTime!.get()!) {
         clearTimeout(timer);
-        if (e.target === document.getElementById(id)) {
-          props.onClickSelf?.(e);
+        if (e.target === document.getElementById(data.id.get())) {
+          data.onClickSelf?.(e);
         }
-        props.onClick?.(e);
+        data.onClick?.(e);
       }
     };
     target?.addEventListener("mouseup", mouseUp);
   };
 
-  const id = nanoid();
+  const mergedClass = useComputed(() =>
+    twMerge(data.baseClass?.get(), data.class?.get())
+  );
+
+  // createEffect(() => {
+  //   console.log("??base data", data);
+  // });
 
   return (
     <Dynamic
-      component={props.component || "div"}
+      component={data.component?.get()!}
       onmousedown={handleMousedown}
-      onDblClick={props.onDblClick}
-      class={twMerge(props.class)}
-      id={id}
+      onDblClick={data.onDblClick}
+      class={mergedClass.get()}
+      id={data.id.get()}
+      style={data.style.get()}
     >
-      {props.children}
+      {data.children?.get()}
     </Dynamic>
   );
 }
 
 export default Base;
+
+Base.config = {
+  component: "div",
+  class: "",
+  baseClass: "",
+  pressTime: 250, // 区分长按和点击，默认250毫秒
+  id: nanoid(), // 唯一标识
+  children: "",
+  style: "",
+} as IBaseType['Props'];

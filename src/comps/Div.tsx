@@ -1,8 +1,14 @@
-import { Base, IBaseProps } from "./Base";
+import { Base, IBaseAttrs, IBaseEvents } from "$/comps";
+import { IType, useData } from "$/utils";
 
-interface IDivProps extends IBaseProps {}
-export function Div(props: IDivProps) {
-  return <Base {...props} component={"div"}></Base>;
+type IDivType = IType<IBaseAttrs<{}>, IBaseEvents<{}>>;
+
+export function Div(props: IDivType["Props"]) {
+  const data = useData<IDivType["Attrs"], IDivType["Events"]>(props);
+
+  return <Base {...data}></Base>;
 }
 
-export default Div;
+Div.config = {
+  ...Base.config,
+} as IDivType['Props'];

@@ -1,8 +1,15 @@
-import { Base, IBaseProps } from "./Base";
+import { Base, IBaseAttrs, IBaseEvents } from "$/comps";
+import { IType, useData } from "$/utils";
 
-interface IButtonProps extends IBaseProps {}
-export function Button(props: IButtonProps) {
-  return <Base {...props} component={"button"}></Base>;
+type IButtonType = IType<IBaseAttrs<{}>, IBaseEvents<{}>>;
+
+export function Button(props: IButtonType["Props"]) {
+  const data = useData<IButtonType["Attrs"], IButtonType["Events"]>(props);
+
+  return <Base {...data}></Base>;
 }
 
-export default Button;
+Button.config = {
+  ...Base.config,
+  type: "button",
+} as IButtonType["Props"];

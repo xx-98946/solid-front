@@ -11,7 +11,7 @@ export interface ISignal<T> {
  * @param value
  * @returns
  */
-export function isSignal<T>(value: ISignalProp<T>) {
+export function isSignal<T>(value: ISignalOption<T>) {
   // @ts-ignore
   if (typeof value == "object" && value != null && value.__signal) {
     return true;
@@ -63,4 +63,5 @@ export function useComputed<T>(callBack: () => T) {
 /**
  * 定义传参类型
  */
-export type ISignalProp<T> = ISignal<T> | T;
+export type ISignalOption<T> = ISignal<T> | T;
+

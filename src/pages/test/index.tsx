@@ -1,36 +1,63 @@
-import { Button, Div } from "$/comps";
-import Base from "$/comps/Base";
+import { Div } from "$/comps";
 import { useComputed, useSignal } from "$/utils";
+import { nanoid } from "nanoid";
+import OpenSeadragon from "openseadragon";
+import { onMount } from "solid-js";
+import "./test.css";
 export default function Test() {
-  const count = useSignal(1);
-  const double = useComputed(() => count.get() * 2);
-  const trible = useComputed(() => count.get() + double.get());
+  const id = nanoid();
 
-  function handleClick(e: MouseEvent) {
-    console.log(e);
-    count.set(count.get() + 1);
-  }
+  const width = useSignal(960);
+  const radio = 1080 / 1920;
+  const height = useComputed(() => width.get() * radio);
 
-  function handlePress() {
-    console.log("??press");
-  }
+  onMount(() => {
+    const viewer = OpenSeadragon({
+      id: id,
+      debugMode: true,
+      debugGridColor: ["white"],
+      showNavigator: true,
+      showHomeControl: false,
+      showFullPageControl: false,
+      showZoomControl: false,
+      tileSources: {
+        type: "image",
+        url: "LD01.png",
+      },
+    });
 
-  function handleClickChild(e: MouseEvent) {
-    e.stopImmediatePropagation();
-    console.log("??child", e);
-  }
+    function addOverLay(item: { type: string; paths: number[] }) {
+      var canvas = document.createElement("canvas");
+      canvas.className = "highlight";
+      canvas.id = nanoid();
+      viewer.addOverlay({
+        element: canvas,
+        // @ts-ignore
+        location: new OpenSeadragon[item.type](...item.paths),
+      });
+    }
 
+    function drawAll() {
+      [
+        // {
+        //   type: "Rect",
+        //   paths: [0, 0, 1, radio],
+        // },
+        {
+          type: "Rect",
+          paths: [0, 0, 0.5, 0.5 * radio],
+        },
+      ].forEach(addOverLay);
+    }
+
+    drawAll();
+  });
   return (
-    <div>
-      <Div onClick={handleClick} class="inline-block  shake">
-        count:{count.get()}
-        <Button onClickSelf={handleClickChild}>按钮2</Button>
-      </Div>
-      <div>double:{double.get()}</div>
-      <div>trible:{trible.get()}</div>
-      <Base class="border p-2" onClick={handleClick} onPress={handlePress}>
-        测试组件
-      </Base>
-    </div>
+    <Div
+      {...Div.config}
+      style={`width:${width.get()}px;height:${height.get()}px;`}
+      class="border-4 border-blue-600"
+      id={id}
+    ></Div>
   );
 }

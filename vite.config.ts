@@ -18,10 +18,10 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api\/kv/, ""),
       },
-      "/api": {
-        target: "http://localhost:3000",
-        changeOrigin: true,
-      },
+      // "/api": {
+      //   target: "http://localhost:3000",
+      //   changeOrigin: true,
+      // },
     },
   },
   build: {
