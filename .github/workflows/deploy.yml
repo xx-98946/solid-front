@@ -38,7 +38,7 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "solid-xuxin"
-          entrypoint: "npm:serve ."
+          entrypoint: "npm run preview"
           root: "dist"
           
           
