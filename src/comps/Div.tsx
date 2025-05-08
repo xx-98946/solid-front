@@ -9,6 +9,8 @@ export function Div(props: IDivType["Props"]) {
   return <Base {...data}></Base>;
 }
 
-Div.config = {
-  ...Base.config,
-} as IDivType['Props'];
+Div.init = () => {
+  return {
+    ...Base.init(),
+  } as IDivType["Props"];
+};

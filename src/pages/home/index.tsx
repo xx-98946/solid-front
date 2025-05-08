@@ -1,10 +1,9 @@
 import { For, onMount, Show } from "solid-js";
 import * as api from "$/api/index.ts";
 import { ILinkItem } from "./type";
-import { useSignal } from "$/utils";
+import { useClass, useComputed, useSignal } from "$/utils";
 import { Button, Div, P, Loading, Blur } from "$/comps";
-// import {toggleFullscreen} from ""
-//
+import { ClassNameValue } from "tailwind-merge";
 
 export default function Nav() {
   const links = useSignal([] as ILinkItem[]);
@@ -71,15 +70,16 @@ export default function Nav() {
         when={!loading.get()}
         fallback={
           <Div
-            {...Div.config}
+            {...Div.init()}
             class="size-full flex justify-center items-center h-[60vh] text-center"
           >
-            <Loading {...Loading.config}></Loading>
+            <Loading {...Loading.init()}></Loading>
           </Div>
         }
       >
+        <div>{showClose.get()}</div>
         <Blur
-          {...Blur.config}
+          {...Blur.init()}
           src={
             "https://picx.zhimg.com/v2-1d69c904759f7e5085873840922dba35_r.jpg?source=1def8aca"
           }
@@ -87,12 +87,12 @@ export default function Nav() {
         >
           {/* 快捷方式 */}
           <Div
-            {...Div.config}
+            {...Div.init()}
             class=" overflow-auto flex-11/12"
             onDblClick={toggleFullscreen}
           >
             <Div
-              {...Div.config}
+              {...Div.init()}
               class="grid grid-cols-7 gap-x-8 gap-y-6 p-2"
               onClickSelf={handleHideClose}
             >
@@ -100,17 +100,16 @@ export default function Nav() {
                 {(item) => {
                   return (
                     <Div
-                      {...Div.config}
+                      {...Div.init()}
                       class={[
                         "p-2 inline-flex flex-col gap-2 whitespace-nowrap overflow-hidden items-center",
                       ]}
+                      title={item.key[1]}
                     >
                       <Div
-                        {...Div.config}
-                        class={[
-                          "relative p-2 inline-flex cursor-pointer",
-                          showClose.get() && "shake",
-                        ]}
+                        {...Div.init()}
+                        baseClass="relative p-2 inline-flex cursor-pointer"
+                        class={useClass(() => (showClose.get() ? "shake" : ""))}
                         onClick={() => handleGoLink(item.value.link)}
                         onPress={handleShowClose}
                       >
@@ -121,7 +120,7 @@ export default function Nav() {
                         />
                         <Show when={showClose.get()}>
                           <Button
-                            {...Button.config}
+                            {...Button.init()}
                             class={[
                               "absolute right-0 top-0 bg-white rounded-full border size-4 flex items-center justify-center p-1 text-xs cursor-pointer",
                             ]}
@@ -132,7 +131,7 @@ export default function Nav() {
                         </Show>
                       </Div>
                       <P
-                        {...P.config}
+                        {...P.init()}
                         class={[
                           toRollClass(item.key[1].length),
                           "px-2 text-white",

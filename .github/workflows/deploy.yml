@@ -40,5 +40,3 @@ jobs:
           project: "solid-xuxin"
           entrypoint: "./serve.ts"
           root: "dist"
-          
-          

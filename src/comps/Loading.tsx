@@ -144,8 +144,10 @@ export function Loading(props: ILoadingType["Props"]) {
   );
 }
 
-Loading.config = {
-  ...Base.config,
-  component: "svg",
-  baseClass:"size-24"
-} as ILoadingType["Props"];
+Loading.init = () => {
+  return {
+    ...Base.init(),
+    component: "svg",
+    baseClass: "size-24",
+  } as ILoadingType["Props"];
+};

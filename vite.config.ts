@@ -2,9 +2,17 @@ import { defineConfig } from "vite";
 import solid from "vite-plugin-solid";
 import tailwindcss from "@tailwindcss/vite";
 import path from "node:path";
+import devtools from "solid-devtools/vite";
 
 export default defineConfig({
-  plugins: [solid(), tailwindcss()],
+  plugins: [
+    solid(),
+    tailwindcss(),
+    devtools({
+      /* features options - all disabled by default */
+      autoname: true, // e.g. enable autoname
+    }),
+  ],
   resolve: {
     alias: {
       $: path.resolve(__dirname, "src"),
@@ -16,7 +24,7 @@ export default defineConfig({
       "/api/kv": {
         target: "https://xuxin-kv.deno.dev/",
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api\/kv/, ""),
+        rewrite: (pathname) => pathname.replace(/^\/api\/kv/, ""),
       },
       // "/api": {
       //   target: "http://localhost:3000",

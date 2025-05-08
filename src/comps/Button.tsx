@@ -9,7 +9,9 @@ export function Button(props: IButtonType["Props"]) {
   return <Base {...data}></Base>;
 }
 
-Button.config = {
-  ...Base.config,
-  type: "button",
-} as IButtonType["Props"];
+Button.init = () => {
+  return {
+    ...Base.init(),
+    type: "button",
+  } as IButtonType["Props"];
+};

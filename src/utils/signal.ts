@@ -1,4 +1,5 @@
 import { createMemo, createSignal, type Accessor, type Setter } from "solid-js";
+import { ClassNameValue } from "tailwind-merge";
 
 export interface ISignal<T> {
   get: Accessor<T>;
@@ -47,9 +48,7 @@ export function useComputed<T>(callBack: () => T) {
   const setValue = computedValue.set;
   createMemo(() => {
     const newValue = callBack();
-    if (newValue) {
-      setValue(newValue as any);
-    }
+    setValue(newValue as any);
   });
 
   // @ts-ignore
@@ -65,3 +64,11 @@ export function useComputed<T>(callBack: () => T) {
  */
 export type ISignalOption<T> = ISignal<T> | T;
 
+/**
+ * 生成类
+ * @param cb
+ * @returns
+ */
+export function useClass(callBack: () => ClassNameValue) {
+  return useComputed(callBack);
+}

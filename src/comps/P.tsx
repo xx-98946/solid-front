@@ -9,6 +9,8 @@ export function P(props: IPType["Props"]) {
   return <Base {...data}></Base>;
 }
 
-P.config = {
-  ...Base.config,
-} as IPType["Props"];
+P.init = () => {
+  return {
+    ...Base.init(),
+  } as IPType["Props"];
+};

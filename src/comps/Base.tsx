@@ -12,7 +12,8 @@ export type IBaseType = IType<
     baseClass: ClassNameValue;
     pressTime: number; // 区分长按和点击，默认250毫秒
     id: string; // 唯一标识
-    style: string;
+    style: string; // 样式
+    title: string; // 文字提示
   },
   {
     onClick?: (event: MouseEvent) => void;
@@ -73,6 +74,7 @@ export function Base(props: IBaseType["Props"]) {
       class={mergedClass.get()}
       id={data.id.get()}
       style={data.style.get()}
+      title={data.title.get()}
     >
       {data.children?.get()}
     </Dynamic>
@@ -81,12 +83,15 @@ export function Base(props: IBaseType["Props"]) {
 
 export default Base;
 
-Base.config = {
-  component: "div",
-  class: "",
-  baseClass: "",
-  pressTime: 250, // 区分长按和点击，默认250毫秒
-  id: nanoid(), // 唯一标识
-  children: "",
-  style: "",
-} as IBaseType['Props'];
+Base.init = () => {
+  return {
+    component: "div",
+    class: "",
+    baseClass: "",
+    pressTime: 250, // 区分长按和点击，默认250毫秒
+    id: nanoid(), // 唯一标识
+    children: "",
+    style: "",
+    title: "",
+  } as IBaseType["Props"];
+};
