@@ -54,7 +54,7 @@ export default function Test() {
   });
   return (
     <Div
-      {...Div.config}
+      {...Div.init()}
       style={`width:${width.get()}px;height:${height.get()}px;`}
       class="border-4 border-blue-600"
       id={id}

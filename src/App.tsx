@@ -1,8 +1,5 @@
 import { Router } from "@solidjs/router";
 import { createSignal, lazy, onMount } from "solid-js";
-import Home from "$/pages/home";
-import NotFounded from "$/pages/404";
-import Test from "$/pages/test";
 import * as client from "$/api";
 const lazyModule = import.meta.glob("$/pages/**/index.tsx");
 
@@ -10,9 +7,13 @@ const lazyModule = import.meta.glob("$/pages/**/index.tsx");
  * 静态路由
  */
 const [getConstRoutes] = createSignal([
-  { path: "/", component: Home, title: "首页" },
-  { path: "/*", component: NotFounded, title: "404" },
-  { path: "/test", component: Test, title: "测试" },
+  { path: "/", component: lazy(() => import("$/pages/home")), title: "首页" },
+  { path: "/*", component: lazy(() => import("$/pages/404")), title: "404" },
+  {
+    path: "/test",
+    component: lazy(() => import("$/pages/test")),
+    title: "测试",
+  },
 ]);
 
 const [getDynamicRoutes, setDynamicRoutes] = createSignal([] as any[]);
