@@ -1,4 +1,10 @@
-import { createMemo, createSignal, type Accessor, type Setter } from "solid-js";
+import {
+  createMemo,
+  createSignal,
+  JSX,
+  type Accessor,
+  type Setter,
+} from "solid-js";
 import { ClassNameValue } from "tailwind-merge";
 
 export interface ISignal<T> {
@@ -6,6 +12,11 @@ export interface ISignal<T> {
   set: Setter<T>;
   __signal: true;
 }
+
+/**
+ * 定义传参类型
+ */
+export type ISignalOption<T> = ISignal<T> | T;
 
 /**
  * 判断是不是信号
@@ -39,6 +50,31 @@ export function useSignal<T>(value: T | ISignal<T>): ISignal<T> {
 }
 
 /**
+ * 生成对象
+ */
+export function useObject<T extends Object>(initValue: T) {
+  const signal = useSignal(initValue);
+  const update = (newValue: Partial<T>) => {
+    const mergedValue = {
+      ...signal.get(),
+      ...newValue,
+    } as any;
+    signal.set(mergedValue);
+  };
+  return {
+    ...signal,
+    update,
+  };
+}
+
+/**
+ * 生成样式
+ * @param initValue
+ * @returns
+ */
+export const useStyle = useObject<JSX.CSSProperties>;
+
+/**
  * 生成计算状态信号
  * @param callBack
  * @returns
@@ -60,15 +96,11 @@ export function useComputed<T>(callBack: () => T) {
 }
 
 /**
- * 定义传参类型
+ * 生成样式类
  */
-export type ISignalOption<T> = ISignal<T> | T;
+export const useComputedClass = useComputed<ClassNameValue>;
 
 /**
- * 生成类
- * @param cb
- * @returns
+ * 生成样式
  */
-export function useClass(callBack: () => ClassNameValue) {
-  return useComputed(callBack);
-}
+export const useComputedStyle = useComputed<JSX.CSSProperties>;

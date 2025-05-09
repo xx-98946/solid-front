@@ -12,7 +12,8 @@ export type IBaseType = IType<
     baseClass: ClassNameValue;
     pressTime: number; // 区分长按和点击，默认250毫秒
     id: string; // 唯一标识
-    style: string; // 样式
+    style: {}; // 动态样式
+    baseStyle: string; // 基础样式
     title: string; // 文字提示
   },
   {
@@ -59,8 +60,19 @@ export function Base(props: IBaseType["Props"]) {
   };
 
   const mergedClass = useComputed(() =>
-    twMerge(data.baseClass?.get(), data.class?.get())
+    twMerge(data.baseClass?.get(), data.class?.get()),
   );
+
+  const mergedStyle = useComputed(() => {
+    return (
+      `${data.baseStyle.get()};` +
+      Object.entries(data.style.get())
+        .map(([key, value]) => {
+          return `${key}:${value}`;
+        })
+        .join(";")
+    );
+  });
 
   // createEffect(() => {
   //   console.log("??base data", data);
@@ -73,7 +85,7 @@ export function Base(props: IBaseType["Props"]) {
       onDblClick={data.onDblClick}
       class={mergedClass.get()}
       id={data.id.get()}
-      style={data.style.get()}
+      style={mergedStyle.get()}
       title={data.title.get()}
     >
       {data.children?.get()}
@@ -91,7 +103,8 @@ Base.init = () => {
     pressTime: 250, // 区分长按和点击，默认250毫秒
     id: nanoid(), // 唯一标识
     children: "",
-    style: "",
+    baseStyle: "",
+    style: {},
     title: "",
   } as IBaseType["Props"];
 };

@@ -1,9 +1,8 @@
 import { For, onMount, Show } from "solid-js";
 import * as api from "$/api/index.ts";
 import { ILinkItem } from "./type";
-import { useClass, useComputed, useSignal } from "$/utils";
+import { useComputedClass, useComputed, useSignal } from "$/utils";
 import { Button, Div, P, Loading, Blur } from "$/comps";
-import { ClassNameValue } from "tailwind-merge";
 
 export default function Nav() {
   const links = useSignal([] as ILinkItem[]);
@@ -45,16 +44,6 @@ export default function Nav() {
     showClose.set(false);
   }
 
-  function toRollClass(length: number) {
-    if (length > 20) {
-      return "roll-20";
-    }
-    if (length > 10) {
-      return "roll-10";
-    }
-    return "";
-  }
-
   function toggleFullscreen() {
     if (document.fullscreenElement) {
       document.exitFullscreen();
@@ -81,35 +70,37 @@ export default function Nav() {
         <Blur
           {...Blur.init()}
           src={
-            "https://picx.zhimg.com/v2-1d69c904759f7e5085873840922dba35_r.jpg?source=1def8aca"
+            "https://uploadstatic.mihoyo.com/contentweb/20210922/2021092217442572336.png"
           }
-          class="w-screen h-screen flex flex-col"
+          class="w-screen h-screen flex flex-col text-black"
         >
           {/* 快捷方式 */}
           <Div
             {...Div.init()}
-            class=" overflow-auto flex-11/12"
+            class="overflow-auto px-4"
             onDblClick={toggleFullscreen}
           >
             <Div
               {...Div.init()}
-              class="grid grid-cols-7 gap-x-8 gap-y-6 p-2"
+              class="grid grid-cols-6 gap-x-8 gap-y-6 p-2"
               onClickSelf={handleHideClose}
             >
               <For each={links.get()}>
                 {(item) => {
+                  const title = item.key[1];
                   return (
                     <Div
                       {...Div.init()}
                       class={[
-                        "p-2 inline-flex flex-col gap-2 whitespace-nowrap overflow-hidden items-center",
+                        "p-2 inline-flex flex-col gap-2 whitespace-nowrap overflow-hidden items-center ",
                       ]}
-                      title={item.key[1]}
                     >
                       <Div
                         {...Div.init()}
                         baseClass="relative p-2 inline-flex cursor-pointer"
-                        class={useClass(() => (showClose.get() ? "shake" : ""))}
+                        class={useComputedClass(() =>
+                          showClose.get() ? "shake" : "",
+                        )}
                         onClick={() => handleGoLink(item.value.link)}
                         onPress={handleShowClose}
                       >
@@ -121,7 +112,7 @@ export default function Nav() {
                         <Show when={showClose.get()}>
                           <Button
                             {...Button.init()}
-                            class={[
+                            baseClass={[
                               "absolute right-0 top-0 bg-white rounded-full border size-4 flex items-center justify-center p-1 text-xs cursor-pointer",
                             ]}
                             onClick={(e) => handleDelete(e, item.key)}
@@ -132,12 +123,12 @@ export default function Nav() {
                       </Div>
                       <P
                         {...P.init()}
-                        class={[
-                          toRollClass(item.key[1].length),
-                          "px-2 text-white",
+                        title={title.length > 10 ? title : ""}
+                        baseClass={[
+                          "px-2 truncate w-full text-center select-none",
                         ]}
                       >
-                        {item.key[1]}
+                        {title}
                       </P>
                     </Div>
                   );

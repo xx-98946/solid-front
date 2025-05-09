@@ -17,7 +17,7 @@ export function Blur(props: IBlurType["Props"]) {
       {/* 蒙层 */}
       <Div
         {...Div.init()}
-        class="absolute size-full z-in backdrop-blur-sm bg-gray-200/10"
+        class="absolute size-full z-in backdrop-blur-md bg-gray-900/10"
       ></Div>
       {/*  */}
       <Div {...Div.init()} class="absolute size-full z-20  overflow-auto">

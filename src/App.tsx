@@ -7,8 +7,16 @@ const lazyModule = import.meta.glob("$/pages/**/index.tsx");
  * 静态路由
  */
 const [getConstRoutes] = createSignal([
-  { path: "/", component: lazy(() => import("$/pages/home")), title: "首页" },
-  { path: "/*", component: lazy(() => import("$/pages/404")), title: "404" },
+  {
+    path: "/",
+    component: lazy(() => import("$/pages/home")),
+    title: "首页",
+  },
+  {
+    path: "/*",
+    component: lazy(() => import("$/pages/404")),
+    title: "404",
+  },
   {
     path: "/test",
     component: lazy(() => import("$/pages/test")),
