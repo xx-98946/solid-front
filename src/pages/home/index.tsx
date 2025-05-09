@@ -82,7 +82,7 @@ export default function Nav() {
           >
             <Div
               {...Div.init()}
-              class="grid sm:grid-cols-2 md:grid-cols-6 gap-x-8 gap-y-6 p-2 "
+              class="grid grid-cols-2 sm:grid-cols-6 gap-x-8 gap-y-6 p-2 "
               onClickSelf={handleHideClose}
             >
               <For each={links.get()}>
@@ -105,7 +105,7 @@ export default function Nav() {
                         onPress={handleShowClose}
                       >
                         <img
-                          class="size-16 rounded-xl"
+                          class="size-12 sm:size-16 rounded-xl"
                           alt=""
                           src={item.value.icon}
                         />
