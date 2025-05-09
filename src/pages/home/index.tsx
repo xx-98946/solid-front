@@ -82,7 +82,7 @@ export default function Nav() {
           >
             <Div
               {...Div.init()}
-              class="grid grid-cols-6 gap-x-8 gap-y-6 p-2"
+              class="grid sm:grid-cols-2 md:grid-cols-6 gap-x-8 gap-y-6 p-2 "
               onClickSelf={handleHideClose}
             >
               <For each={links.get()}>
@@ -99,7 +99,7 @@ export default function Nav() {
                         {...Div.init()}
                         baseClass="relative p-2 inline-flex cursor-pointer"
                         class={useComputedClass(() =>
-                          showClose.get() ? "shake" : "",
+                          showClose.get() ? "shake" : ""
                         )}
                         onClick={() => handleGoLink(item.value.link)}
                         onPress={handleShowClose}
