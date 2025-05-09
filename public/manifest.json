@@ -27,13 +27,14 @@
       "type": "image/jpeg"
     }
   ],
-  "background_color": "#af0a1a",
-  "theme_color": "#af0a1a",
-  "display": "fullscreen",
+  "background_color": "transparent",
+  "theme_color": "transparent",
+  "//display": "fullscreen",
+  "display": "minimal-ui",
   "orientation": "any",
   "start_url": ".",
   "url": "index.html",
   "scope": ".",
-  "lang": "fa-IR",
+  "lang": "zh-cn",
   "dir": "rtl"
 }
