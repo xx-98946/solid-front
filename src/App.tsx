@@ -22,6 +22,11 @@ const [getConstRoutes] = createSignal([
     component: lazy(() => import("$/pages/test")),
     title: "测试",
   },
+  {
+    path: "/render",
+    component: lazy(() => import("$/pages/render")),
+    title: "渲染器",
+  },
 ]);
 
 const [getDynamicRoutes, setDynamicRoutes] = createSignal([] as any[]);

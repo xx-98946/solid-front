@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>OpenSeadragon 示例</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.0/openseadragon.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.0/openseadragon.min.css"
+    />
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+      }
+      #openseadragon {
+        width: 100%;
+        height: 100%;
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="openseadragon"></div>
+
+    <script>
+      OpenSeadragon({
+        id: "openseadragon",
+        prefixUrl:
+          "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.0/images/",
+        tileSources: "/big.dzi", // 你的 Deep Zoom 图像路径（.dzi）
+        showNavigator: true,
+        minZoomLevel: 1, // 最小缩放比例（0.5 倍原始图像）
+        maxZoomLevel: 20, // 最大缩放比例（5 倍原始图像）
+        navigatorPosition: "BOTTOM_RIGHT",
+      });
+    </script>
+  </body>
+</html>

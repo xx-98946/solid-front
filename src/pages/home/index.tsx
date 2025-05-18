@@ -99,7 +99,7 @@ export default function Nav() {
                         {...Div.init()}
                         baseClass="relative p-2 inline-flex cursor-pointer"
                         class={useComputedClass(() =>
-                          showClose.get() ? "shake" : ""
+                          showClose.get() ? "shake" : "",
                         )}
                         onClick={() => handleGoLink(item.value.link)}
                         onPress={handleShowClose}

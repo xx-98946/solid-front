@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "fmt": "prettier . --write"
+    "fmt": "prettier . --write",
+    "deploy": "bun run build | deno run -A ./dist/serve.ts"
   },
   "dependencies": {
     "@amap/amap-jsapi-loader": "^1.0.1",
